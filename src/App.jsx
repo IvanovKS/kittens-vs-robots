@@ -1,9 +1,11 @@
-function App() {
+// import { useState } from 'react'
+import Welcome from './components/Welcome';
+
+export default function App() {
   return (
-    <div>
-      <h1>Start</h1>
-    </div>
+    <>
+      <Welcome/>
+    </>
   );
 }
 
-export default App;
