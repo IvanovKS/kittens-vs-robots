@@ -1,3 +1,4 @@
+import React from 'react';
 import { styled } from 'styled-components';
 
 const Section = styled.section`
@@ -44,22 +45,13 @@ const Button = styled.button`
     transition: background 100ms linear;
   }
 `
-function ButtonComponent({title}) {
-  return (
-    <Button>{title}</Button>
-  );
-}
-
-const welcomeButtons = ["Новая игра", "Правила", "Зал славы"];
-
-export default function Welcome() {
-  const result = welcomeButtons.map((el, index) => {
-    return <ButtonComponent key={index} title={el} />;
-  });
+export default function Welcome({active, btnClicked}) {
   return (
     <Section>
       <H1>kittens<Span> VS </Span>robots</H1>
-      {result}
+      <Button onClick={() => btnClicked('Новая игра')} isActive = {active === 'Зал славы'}>Новая игра</Button>
+      <Button onClick={() => btnClicked('Правила')} isActive = {active === 'Правила'}>Правила</Button>
+      <Button onClick={() => btnClicked('Зал славы')} isActive = {active === 'Зал славы'}>Зал славы</Button>
     </Section>
   );
 }
